@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FitTrack CUET - Your personal gym dashboard for tracking workouts, progress, and fitness goals">
+    <meta name="keywords" content="gym, fitness, workout, tracking, CUET">
+    <meta name="author" content="FitTrack CUET">
+    <meta name="theme-color" content="#4f46e5">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dashboard - FitTrack CUET">
+    <meta property="og:description" content="Track your fitness journey with FitTrack CUET">
+    
+    <title>Dashboard - FitTrack CUET</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/gym-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://ui-avatars.com">
+</head>
+<body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- Site Header -->
+    <header class="site-header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container container">
+                <!-- Brand Logo -->
+                <a href="dashboard.html" class="nav-brand" aria-label="FitTrack CUET Home">
+                    <i class="fas fa-dumbbell" aria-hidden="true"></i>
+                    <span>FitTrack CUET</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle -->
+                <button 
+                    class="nav-toggle" 
+                    id="navToggle" 
+                    type="button"
+                    aria-expanded="false" 
+                    aria-controls="navMenu"
+                    aria-label="Toggle navigation menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Main Navigation Menu -->
+                <ul class="nav-menu" id="navMenu" role="menubar">
+                    <li role="none">
+                        <a href="dashboard.html" class="active" role="menuitem" aria-current="page">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="equipment.html" role="menuitem">
+                            <i class="fas fa-dumbbell" aria-hidden="true"></i>
+                            <span>Equipment</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="workout-history.html" role="menuitem">
+                            <i class="fas fa-history" aria-hidden="true"></i>
+                            <span>Workout History</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="ai-instructor.html" role="menuitem">
+                            <i class="fas fa-robot" aria-hidden="true"></i>
+                            <span>AI Instructor</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="diet-plan.html" role="menuitem">
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+                            <span>Diet Plan</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="medical-profile.html" role="menuitem">
+                            <i class="fas fa-user-md" aria-hidden="true"></i>
+                            <span>Medical Profile</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="rules-safety.html" role="menuitem">
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                            <span>Rules & Safety</span>
+                        </a>
+                    </li>
+                    <li role="none" id="adminNavLink" style="display: none;">
+                        <a href="admin-dashboard.html" role="menuitem">
+                            <i class="fas fa-crown" aria-hidden="true"></i>
+                            <span>Admin Panel</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="nav-user">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-dropdown">
+                        <img src="https://ui-avatars.com/api/?name=Student&background=4f46e5&color=fff" alt="User">
+                        <span class="user-name">Student</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="dropdown-menu">
+                            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="index.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content" role="main">
+        <div class="container">
+            
+            <!-- Motivational Banner -->
+            <aside class="motivational-banner" role="complementary" aria-label="Daily motivation">
+                <p>
+                    <q>The only bad workout is the one that didn't happen. Let's make today count!</q>
+                </p>
+            </aside>
+
+            <!-- Welcome Section -->
+            <section class="welcome-section" aria-labelledby="welcome-heading">
+                <header class="welcome-text">
+                    <h1 id="welcome-heading">Welcome Back, <span id="userName">Student</span>! 💪</h1>
+                    <p>Ready to crush your fitness goals today?</p>
+                </header>
+                <nav class="quick-actions" aria-label="Quick actions">
+                    <a href="workout-history.html" class="btn btn-primary">
+                        <i class="fas fa-plus" aria-hidden="true"></i>
+                        <span>Log Workout</span>
+                    </a>
+                    <a href="ai-instructor.html" class="btn btn-secondary">
+                        <i class="fas fa-robot" aria-hidden="true"></i>
+                        <span>Ask AI</span>
+                    </a>
+                </nav>
+            </section>
+
+            <!-- Gym Facility Image Section -->
+            <section class="gym-gallery-section" aria-labelledby="gym-gallery-heading">
+                <div class="gym-gallery-container">
+                    <figure class="gym-image-figure">
+                        <img 
+                            src="gym-photo/CUET-Gymnashium.jpeg" 
+                            alt="CUET Gymnasium - State-of-the-art fitness facility"
+                            class="gym-facility-image"
+                            loading="lazy"
+                        >
+                        <figcaption>Experience world-class equipment and training facilities at CUET Gymnasium</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- Gym Status Section -->
+            <section class="gym-status-section" aria-labelledby="gym-status-heading">
+                <article class="status-card">
+                    <header class="status-header">
+                        <h2 id="gym-status-heading">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            Gym Status
+                        </h2>
+                        <span class="gym-status-badge status-badge open" role="status" aria-live="polite">Open Now</span>
+                    </header>
+                    <dl class="status-details">
+                        <div class="status-item">
+                            <dt>
+                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                <strong>Operating Hours</strong>
+                            </dt>
+                            <dd>6:00 PM - 10:00 PM (Every Day)</dd>
+                        </div>
+                        <div class="status-item">
+                            <dt>
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                                <strong>Current Capacity</strong>
+                            </dt>
+                            <dd>
+                                <span class="gym-occupancy" aria-label="Capacity">32/50 Members</span>
+                            </dd>
+                        </div>
+                        <div class="status-item">
+                            <dt>
+                                <i class="fas fa-thermometer-half" aria-hidden="true"></i>
+                                <strong>Environment</strong>
+                            </dt>
+                            <dd>25°C • Well Ventilated</dd>
+                        </div>
+                    </dl>
+                </article>
+            </section>
+
+            <!-- Stats Overview Section -->
+            <section class="stats-section" aria-labelledby="stats-heading">
+                <h2 class="section-title" id="stats-heading">Your Progress Overview</h2>
+                <div class="stats-grid" role="list">
+                    <article class="stat-card" role="listitem">
+                        <figure class="stat-icon blue" aria-hidden="true">
+                            <i class="fas fa-fire"></i>
+                        </figure>
+                        <div class="stat-content">
+                            <p class="stat-number" id="stat-total-workouts" aria-label="Total workouts">-</p>
+                            <p class="stat-label">Total Workouts</p>
+                        </div>
+                    </article>
+
+                    <article class="stat-card" role="listitem">
+                        <figure class="stat-icon green" aria-hidden="true">
+                            <i class="fas fa-calendar-check"></i>
+                        </figure>
+                        <div class="stat-content">
+                            <p class="stat-number" id="stat-month-workouts" aria-label="Workouts this month">-</p>
+                            <p class="stat-label">This Month</p>
+                        </div>
+                    </article>
+
+                    <article class="stat-card" role="listitem">
+                        <figure class="stat-icon orange" aria-hidden="true">
+                            <i class="fas fa-trophy"></i>
+                        </figure>
+                        <div class="stat-content">
+                            <p class="stat-number" id="stat-day-streak" aria-label="Day streak">-</p>
+                            <p class="stat-label">Day Streak</p>
+                        </div>
+                    </article>
+
+                    <article class="stat-card" role="listitem">
+                        <figure class="stat-icon purple" aria-hidden="true">
+                            <i class="fas fa-clock"></i>
+                        </figure>
+                        <div class="stat-content">
+                            <p class="stat-number" id="stat-total-time" aria-label="Total time">-</p>
+                            <p class="stat-label">Total Time</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Equipment Catalog Section -->
+            <section class="equipment-section" aria-labelledby="equipment-heading">
+                <header class="section-header">
+                    <h2 class="section-title" id="equipment-heading">Equipment Catalog</h2>
+                    <div class="section-header-right">
+                        <nav class="filter-buttons" aria-label="Equipment category filter">
+                            <button 
+                                class="filter-btn active" 
+                                data-category="all"
+                                aria-pressed="true"
+                            >
+                                All
+                            </button>
+                            <button 
+                                class="filter-btn" 
+                                data-category="cardio"
+                                aria-pressed="false"
+                            >
+                                Cardio
+                            </button>
+                            <button 
+                                class="filter-btn" 
+                                data-category="strength"
+                                aria-pressed="false"
+                            >
+                                Strength
+                            </button>
+                            <button 
+                                class="filter-btn" 
+                                data-category="free-weights"
+                                aria-pressed="false"
+                            >
+                                Free Weights
+                            </button>
+                        </nav>
+                        <a href="equipment.html" class="btn btn-primary">
+                            <i class="fas fa-th" aria-hidden="true"></i>
+                            <span>View All Equipment</span>
+                        </a>
+                    </div>
+                </header>
+                
+                <div class="equipment-grid" id="equipmentGrid" role="list" aria-live="polite">
+                    <!-- Equipment items dynamically loaded via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Recent Activity Section -->
+            <section class="activity-section" aria-labelledby="activity-heading">
+                <h2 class="section-title" id="activity-heading">Recent Activity</h2>
+                <ul class="activity-list" id="recentActivityList" role="list">
+                    <div class="loading" style="text-align: center; padding: 2rem;">
+                        <i class="fas fa-spinner fa-spin"></i> Loading recent activity...
+                    </div>
+                </ul>
+            </section>
+            
+        </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer footer" role="contentinfo">
+        <div class="container footer-container">
+            <p>
+                <small>&copy; <time datetime="2026">2026</time> FitTrack CUET. All rights reserved.</small>
+            </p>
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="rules-safety.html">Rules & Safety</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Support</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/notifications.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+</body>
+</html>
+
+
+

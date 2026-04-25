@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email - FitTrack CUET</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .verification-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: var(--bg-color, #f4f6f9);
+        }
+        .verification-card {
+            background-color: var(--card-bg, #ffffff);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        .verification-icon {
+            font-size: 60px;
+            color: var(--primary-color, #ff3333);
+            margin-bottom: 20px;
+        }
+        .success-icon { color: #28a745 !important; }
+        .error-icon { color: #dc3545 !important; }
+        .verification-title {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        .verification-text {
+            color: var(--text-color, #333333);
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        .otp-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
+        }
+        .otp-input {
+            padding: 15px;
+            font-size: 24px;
+            letter-spacing: 8px;
+            text-align: center;
+            border: 2px solid var(--border-color, #ddd);
+            border-radius: 8px;
+            width: 250px;
+            max-width: 100%;
+            outline: none;
+            transition: border-color 0.3s;
+            font-weight: bold;
+            color: var(--text-color, #333);
+            background-color: var(--input-bg, #fff);
+        }
+        .otp-input:focus {
+            border-color: var(--primary-color, #ff3333);
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary-color, #ff3333);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover, #e60000);
+            color: white;
+        }
+        .btn-primary:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Script Container -->
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') document.body.classList.add('dark-theme');
+    </script>
+    
+    <div class="verification-container" id="verification-app">
+        <div class="verification-card">
+            <i class="fas fa-envelope-open-text verification-icon" id="statusIcon"></i>
+            <h2 class="verification-title" id="statusTitle">Verify Your Email</h2>
+            <p class="verification-text" id="statusText">Please enter the One-Time Password (OTP) sent to your email.</p>
+            
+            <form id="otpForm" class="otp-form">
+                <input type="text" id="otpInput" class="otp-input" placeholder="------" maxlength="6" required autocomplete="off" autofocus>
+                <button type="submit" class="btn-primary" id="verifyBtn">Verify Email</button>
+            </form>
+            
+            <div id="successActions" style="display: none; margin-top: 20px;">
+                <a href="index.html" class="btn-primary">Go to Login</a>
+            </div>
+            
+            <div id="errorMsg" style="color: #dc3545; margin-top: 15px; display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('otpForm');
+            const input = document.getElementById('otpInput');
+            const btn = document.getElementById('verifyBtn');
+            const icon = document.getElementById('statusIcon');
+            const title = document.getElementById('statusTitle');
+            const text = document.getElementById('statusText');
+            const successActions = document.getElementById('successActions');
+            const errorMsg = document.getElementById('errorMsg');
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const token = input.value.trim();
+                
+                if (!token) {
+                    errorMsg.textContent = 'Please enter your OTP code.';
+                    errorMsg.style.display = 'block';
+                    return;
+                }
+                
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+                errorMsg.style.display = 'none';
+                
+                try {
+                    const response = await fetch(`${API_BASE_URL}/auth/verify-email`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ token })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        icon.className = 'fas fa-check-circle verification-icon success-icon';
+                        title.textContent = 'Email Verified!';
+                        text.textContent = 'Your email has been successfully verified. You can now log into your account.';
+                        
+                        form.style.display = 'none';
+                        successActions.style.display = 'block';
+                    } else {
+                        throw new Error(data.detail || 'Verification failed');
+                    }
+                } catch (error) {
+                    errorMsg.textContent = error.message;
+                    errorMsg.style.display = 'block';
+                    btn.disabled = false;
+                    btn.innerHTML = 'Verify Email';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

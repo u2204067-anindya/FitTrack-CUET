@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gym Instructor - FitTrack CUET</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <link rel="stylesheet" href="css/gym-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-dumbbell"></i>
+                <span>FitTrack CUET</span>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>                <li><a href="equipment.html"><i class="fas fa-dumbbell"></i> Equipment</a></li>                <li><a href="workout-history.html"><i class="fas fa-history"></i> Workout History</a></li>
+                <li><a href="ai-instructor.html" class="active"><i class="fas fa-robot"></i> AI Instructor</a></li>
+                <li><a href="diet-plan.html"><i class="fas fa-utensils"></i> Diet Plan</a></li>
+                <li><a href="medical-profile.html"><i class="fas fa-user-md"></i> Medical Profile</a></li>
+                <li><a href="rules-safety.html"><i class="fas fa-shield-alt"></i> Rules & Safety</a></li>
+            </ul>
+            
+            <div class="nav-user">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Student&background=4f46e5&color=fff" alt="User">
+                    <span class="user-name">Student</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="index.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container ai-container">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div>
+                    <h1><i class="fas fa-robot"></i> AI Gym Instructor</h1>
+                    <p>Get personalized fitness guidance powered by AI</p>
+                </div>
+            </section>
+
+            <!-- AI Chat Interface -->
+            <div class="chat-wrapper">
+                <!-- Sidebar with Quick Actions -->
+                <aside class="chat-sidebar">
+                    <h3>Quick Actions</h3>
+                    <div class="quick-prompts">
+                        <button class="prompt-btn" onclick="sendQuickPrompt('Create a workout plan for chest and triceps')">
+                            <i class="fas fa-dumbbell"></i>
+                            <span>Workout Plan</span>
+                        </button>
+                        <button class="prompt-btn" onclick="sendQuickPrompt('How do I properly use the bench press?')">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Equipment Guide</span>
+                        </button>
+                        <button class="prompt-btn" onclick="sendQuickPrompt('What exercises can I do for lower back pain?')">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Injury Prevention</span>
+                        </button>
+                        <button class="prompt-btn" onclick="sendQuickPrompt('Suggest warm-up exercises')">
+                            <i class="fas fa-running"></i>
+                            <span>Warm-up Routine</span>
+                        </button>
+                        <button class="prompt-btn" onclick="sendQuickPrompt('Progressive overload tips')">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Training Tips</span>
+                        </button>
+                    </div>
+
+                    <div class="ai-info">
+                        <h4><i class="fas fa-info-circle"></i> About AI Instructor</h4>
+                        <p>Your personal AI fitness assistant trained to help with:</p>
+                        <ul>
+                            <li>Workout planning</li>
+                            <li>Exercise form and technique</li>
+                            <li>Equipment usage</li>
+                            <li>Safety guidelines</li>
+                            <li>Progress tracking advice</li>
+                        </ul>
+                        <div class="disclaimer">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <small>AI advice is for guidance only. Consult professionals for medical concerns.</small>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Chat Area -->
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message ai-message">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <span class="message-sender">AI Instructor</span>
+                                    <span class="message-time">Just now</span>
+                                </div>
+                                <div class="message-text">
+                                    <p>Hello! 👋 I'm your AI gym instructor. I'm here to help you with:</p>
+                                    <ul>
+                                        <li>Creating personalized workout plans</li>
+                                        <li>Proper exercise techniques and form</li>
+                                        <li>Equipment usage and safety</li>
+                                        <li>Workout progression strategies</li>
+                                        <li>General fitness guidance</li>
+                                    </ul>
+                                    <p>How can I assist you with your fitness journey today?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Typing Indicator -->
+                    <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="chat-input-container">
+                        <form id="chatForm" class="chat-input-form">
+                            <button type="button" class="attach-btn" title="Attach file">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <textarea 
+                                id="chatInput" 
+                                class="chat-input" 
+                                placeholder="Ask me anything about fitness, workouts, or gym equipment..."
+                                rows="1"
+                            ></textarea>
+                            <button type="submit" class="send-btn" id="sendBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <div class="input-hints">
+                            <small><i class="fas fa-lightbulb"></i> Try: "Create a beginner workout plan" or "How to use the lat pulldown machine?"</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FitTrack CUET. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="rules-safety.html">Rules & Safety</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/notifications.js" defer></script>
+    <script src="js/ai-instructor.js"></script>
+</body>
+</html>

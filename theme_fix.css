@@ -1,0 +1,83 @@
+﻿/* ---- THE COMPLETE DARK THEME OVERRIDES ---- */
+body.dark-theme .main-content .container { background: var(--bg-gray) !important; color: var(--text-dark); border-color: var(--border-color); }
+body.dark-theme .stat-card, 
+body.dark-theme .card, 
+body.dark-theme .dashboard-card,
+body.dark-theme .status-card,
+body.dark-theme .equipment-card,
+body.dark-theme .profile-card,
+body.dark-theme .medical-form,
+body.dark-theme .history-container,
+body.dark-theme .rules-container,
+body.dark-theme .form-container,
+body.dark-theme .login-container,
+body.dark-theme .login-right,
+body.dark-theme .register-right,
+body.dark-theme .settings-sidebar,
+body.dark-theme .settings-main,
+body.dark-theme .table-container,
+body.dark-theme .modal-content,
+body.dark-theme .workout-card {
+    background: var(--bg-gray) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+}
+
+body.dark-theme .activity-item,
+body.dark-theme .workout-item,
+body.dark-theme .meal-card {
+    background: var(--bg-white) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Dropdowns */
+body.dark-theme .dropdown-menu {
+    background: var(--bg-gray) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+body.dark-theme .dropdown-menu a:hover {
+    background: var(--bg-white) !important;
+}
+
+/* Buttons / Actions / Form Elements */
+body.dark-theme .btn-secondary,
+body.dark-theme .btn-outline {
+    background: var(--bg-light) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-dark) !important;
+}
+body.dark-theme .btn-secondary:hover,
+body.dark-theme .btn-outline:hover {
+    background: var(--bg-white) !important;
+}
+
+/* Forms */
+body.dark-theme input:not([type="checkbox"]):not([type="radio"]),
+body.dark-theme select,
+body.dark-theme textarea {
+    background-color: var(--bg-white) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+}
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+    color: var(--text-light) !important;
+}
+
+/* Ensure text contrast */
+body.dark-theme .text-muted,
+body.dark-theme .text-light,
+body.dark-theme .section-description,
+body.dark-theme .settings-info-box p,
+body.dark-theme .settings-action-item p {
+    color: var(--text-light) !important;
+}
+body.dark-theme h1, body.dark-theme h2, body.dark-theme h3,
+body.dark-theme h4, body.dark-theme h5, body.dark-theme h6,
+body.dark-theme strong, body.dark-theme label,
+body.dark-theme .settings-action-item strong,
+body.dark-theme th {
+    color: var(--text-dark) !important;
+}
+
+body.dark-theme, body.dark-theme main { background-color: var(--bg-light) !important; }

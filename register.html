@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack CUET - Register</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-left">
+            <div class="branding">
+                <i class="fas fa-dumbbell"></i>
+                <h1>FitTrack CUET</h1>
+                <p>Start Your Fitness Journey Today</p>
+            </div>
+            <div class="register-benefits">
+                <h3>Join CUET's Premier Fitness Platform</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Access to complete equipment catalog</li>
+                    <li><i class="fas fa-check"></i> Track your daily workouts</li>
+                    <li><i class="fas fa-check"></i> Get AI-powered fitness guidance</li>
+                    <li><i class="fas fa-check"></i> Personalized diet recommendations</li>
+                    <li><i class="fas fa-check"></i> Safety guidelines and rules</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="register-right">
+            <div class="register-box">
+                <h2>Create Account</h2>
+                <p class="subtitle">Fill in your details to get started</p>
+                
+                <form id="registerForm" class="auth-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="regStudentId">Student ID</label>
+                        <div class="input-group">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" id="regStudentId" name="studentId" placeholder="Enter your student ID" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="your.email@cuet.ac.bd" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <span>
+                                <select id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="CSE">Computer Science & Engineering</option>
+                                <option value="EEE">Electrical & Electronic Engineering</option>
+                                <option value="ETE">Electronics & Telecommunication Engineering</option>
+                                <option value="ME">Mechanical Engineering</option>
+                                <option value="CE">Civil Engineering</option>
+                                <option value="MIE">Mechatronics and Industrial Engineering</option>
+                                <option value = "MME">Materials and Metallurgical Engineering</option>
+                                <option value="BME">Biomedical Engineering</option>
+                                <option value="ARCH">Architecture</option>
+                                <option value="URP">Urban & Regional Planning</option>
+                                <option value="WRE">Water Resources Engineering</option>
+
+                            </select>
+                            </span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="Level">Level</label>
+                            <span>
+                                <select id="level" name="level" required>
+                                <option value="">Select Level</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Term">Term</label>
+                            <span>
+                                <select id="term" name="term" required>
+                                <option value="">Select Term</option>
+                                <option value="I">I</option>
+                                <option value="II">II</option>
+                            </select>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="regPassword" name="password" placeholder="Create a strong password" required>
+                            <i class="fas fa-eye toggle-password"></i>
+                        </div>
+                        <small class="password-hint">At least 8 characters with uppercase, lowercase, and numbers</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required>
+                            <i class="fas fa-eye toggle-password"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" required>
+                            <span>I agree to the <a href="rules-safety.html" target="_blank">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span>Create Account</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="index.html">Login here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
