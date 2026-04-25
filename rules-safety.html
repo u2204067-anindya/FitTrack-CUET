@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Rules & Safety - FitTrack CUET</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <link rel="stylesheet" href="css/gym-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-dumbbell"></i>
+                <span>FitTrack CUET</span>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>                <li><a href="equipment.html"><i class="fas fa-dumbbell"></i> Equipment</a></li>                <li><a href="workout-history.html"><i class="fas fa-history"></i> Workout History</a></li>
+                <li><a href="ai-instructor.html"><i class="fas fa-robot"></i> AI Instructor</a></li>
+                <li><a href="diet-plan.html"><i class="fas fa-utensils"></i> Diet Plan</a></li>
+                <li><a href="medical-profile.html"><i class="fas fa-user-md"></i> Medical Profile</a></li>
+                <li><a href="rules-safety.html" class="active"><i class="fas fa-shield-alt"></i> Rules & Safety</a></li>
+            </ul>
+            
+            <div class="nav-user">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Student&background=4f46e5&color=fff" alt="User">
+                    <span class="user-name">Student</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="index.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container rules-container">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div>
+                    <h1><i class="fas fa-shield-alt"></i> Gym Rules & Safety Guidelines</h1>
+                    <p>Your safety is our priority. Please read and follow these guidelines.</p>
+                </div>
+            </section>
+
+            <!-- Emergency Alert -->
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-circle"></i>
+                <div>
+                    <strong>Emergency Contact:</strong>
+                    <p>In case of emergency, immediately contact gym staff or call: <strong>+880-1XXX-XXXXXX</strong></p>
+                </div>
+            </div>
+
+            <!-- Quick Safety Tips -->
+            <section class="safety-highlights">
+                <div class="highlight-card">
+                    <i class="fas fa-running"></i>
+                    <h3>Warm-Up First</h3>
+                    <p>Always start with 5-10 minutes of warm-up exercises</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-water"></i>
+                    <h3>Stay Hydrated</h3>
+                    <p>Bring water and drink before, during, and after workouts</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-user-check"></i>
+                    <h3>Use Proper Form</h3>
+                    <p>Focus on correct technique over lifting heavy weights</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Ask for Help</h3>
+                    <p>Request assistance when using new equipment</p>
+                </div>
+            </section>
+
+            <!-- General Rules -->
+            <section class="rules-section">
+                <h2><i class="fas fa-list-check"></i> General Gym Rules</h2>
+                <div class="rules-content">
+                    <div class="rule-item">
+                        <span class="rule-number">1</span>
+                        <div class="rule-text">
+                            <h3>Valid Student ID Required</h3>
+                            <p>All members must present their valid CUET student ID card upon entry. Guest access is not permitted.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">2</span>
+                        <div class="rule-text">
+                            <h3>Operating Hours</h3>
+                            <p>The gym operates from <strong>6:00 AM to 10:00 PM</strong> (Monday to Saturday). Closed on Sundays and public holidays.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">3</span>
+                        <div class="rule-text">
+                            <h3>Proper Attire</h3>
+                            <p>Wear appropriate gym attire and closed-toe athletic shoes. Tank tops, sandals, and barefoot training are prohibited.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">4</span>
+                        <div class="rule-text">
+                            <h3>Personal Hygiene</h3>
+                            <p>Maintain good personal hygiene. Use towels on equipment and clean machines after use with provided sanitizing wipes.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">5</span>
+                        <div class="rule-text">
+                            <h3>Equipment Return</h3>
+                            <p>Return all weights, dumbbells, and equipment to their designated places after use. Re-rack weights properly.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">6</span>
+                        <div class="rule-text">
+                            <h3>No Dropping Weights</h3>
+                            <p>Avoid dropping or slamming weights. Control the weight during both lifting and lowering phases.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">7</span>
+                        <div class="rule-text">
+                            <h3>Share Equipment</h3>
+                            <p>Allow others to work in between your sets during busy periods. Time limits may apply on cardio equipment (30 minutes).</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">8</span>
+                        <div class="rule-text">
+                            <h3>Mobile Phone Use</h3>
+                            <p>Keep phone conversations brief and outside the workout areas. Use headphones for music at reasonable volume.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">9</span>
+                        <div class="rule-text">
+                            <h3>No Food in Gym Area</h3>
+                            <p>Food is not allowed on the gym floor. Water and sports drinks are permitted in secure bottles only.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">10</span>
+                        <div class="rule-text">
+                            <h3>Respect Others</h3>
+                            <p>Be courteous to fellow members and staff. Harassment, offensive language, and inappropriate behavior will not be tolerated.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safety Guidelines -->
+            <section class="rules-section">
+                <h2><i class="fas fa-first-aid"></i> Safety Guidelines</h2>
+                <div class="safety-grid">
+                    <div class="safety-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Medical Clearance</h3>
+                        <p>Consult a healthcare provider before starting any new exercise program, especially if you have existing medical conditions.</p>
+                    </div>
+
+                    <div class="safety-card">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h3>Know Your Limits</h3>
+                        <p>Don't push beyond your capabilities. Stop immediately if you feel dizzy, nauseous, or experience chest pain.</p>
+                    </div>
+
+                    <div class="safety-card">
+                        <i class="fas fa-user-friends"></i>
+                        <h3>Use Spotters</h3>
+                        <p>Always use a spotter when lifting heavy weights, especially for bench press and squats.</p>
+                    </div>
+
+                    <div class="safety-card">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>Learn Proper Technique</h3>
+                        <p>Ask trainers or use AI instructor for guidance on proper form before using unfamiliar equipment.</p>
+                    </div>
+
+                    <div class="safety-card">
+                        <i class="fas fa-shoe-prints"></i>
+                        <h3>Check Equipment</h3>
+                        <p>Inspect equipment before use. Report any damaged or malfunctioning equipment to staff immediately.</p>
+                    </div>
+
+                    <div class="safety-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Rest & Recovery</h3>
+                        <p>Allow adequate rest between workouts. Overtraining can lead to injury and burnout.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Injury Prevention -->
+            <section class="rules-section">
+                <h2><i class="fas fa-band-aid"></i> Injury Prevention Tips</h2>
+                <div class="prevention-list">
+                    <div class="prevention-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Always warm up</strong> before starting your workout and cool down afterwards</p>
+                    </div>
+                    <div class="prevention-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Progress gradually</strong> - increase weight, intensity, or duration slowly over time</p>
+                    </div>
+                    <div class="prevention-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Maintain proper posture</strong> and form during all exercises</p>
+                    </div>
+                    <div class="prevention-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Wear appropriate footwear</strong> with good support and grip</p>
+                    </div>
+                    <div class="prevention-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Stay focused</strong> - avoid distractions while exercising</p>
+                    </div>
+                    <div class="prevention-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Listen to your body</strong> - pain is a warning sign, not something to ignore</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Equipment Usage -->
+            <section class="rules-section">
+                <h2><i class="fas fa-tools"></i> Equipment Usage Guidelines</h2>
+                <div class="equipment-guidelines">
+                    <div class="guideline-card">
+                        <h3><i class="fas fa-weight"></i> Free Weights</h3>
+                        <ul>
+                            <li>Start with lighter weights to master form</li>
+                            <li>Use collars to secure weight plates</li>
+                            <li>Never walk behind someone lifting</li>
+                            <li>Place weights down gently</li>
+                        </ul>
+                    </div>
+
+                    <div class="guideline-card">
+                        <h3><i class="fas fa-cog"></i> Machines</h3>
+                        <ul>
+                            <li>Adjust seat and settings before starting</li>
+                            <li>Follow posted instructions</li>
+                            <li>Use controlled movements</li>
+                            <li>Wipe down after use</li>
+                        </ul>
+                    </div>
+
+                    <div class="guideline-card">
+                        <h3><i class="fas fa-running"></i> Cardio Equipment</h3>
+                        <ul>
+                            <li>Start at slow pace and gradually increase</li>
+                            <li>Use safety clips on treadmills</li>
+                            <li>Limit sessions to 30 minutes during peak hours</li>
+                            <li>Step off carefully when finished</li>
+                        </ul>
+                    </div>
+
+                    <div class="guideline-card">
+                        <h3><i class="fas fa-circle-notch"></i> Functional Training</h3>
+                        <ul>
+                            <li>Ensure adequate space around you</li>
+                            <li>Use mats for floor exercises</li>
+                            <li>Keep training area clear</li>
+                            <li>Return equipment after use</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prohibited Activities -->
+            <section class="rules-section">
+                <h2><i class="fas fa-ban"></i> Prohibited Activities</h2>
+                <div class="prohibited-list">
+                    <div class="prohibited-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Bringing food onto the gym floor</span>
+                    </div>
+                    <div class="prohibited-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Using equipment while under the influence of alcohol or drugs</span>
+                    </div>
+                    <div class="prohibited-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Smoking or vaping inside the facility</span>
+                    </div>
+                    <div class="prohibited-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Photography or videography without permission</span>
+                    </div>
+                    <div class="prohibited-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Monopolizing equipment for extended periods</span>
+                    </div>
+                    <div class="prohibited-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Harassment or intimidation of other members</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Acknowledgment -->
+            <section class="acknowledgment-section">
+                <div class="acknowledgment-box">
+                    <h3><i class="fas fa-file-signature"></i> Rules Acknowledgment</h3>
+                    <p>By using the CUET Gymnasium, you acknowledge that you have read, understood, and agree to follow all rules and safety guidelines. Violation of these rules may result in suspension of gym privileges.</p>
+                    <div class="acknowledgment-actions">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rulesAcknowledge">
+                            <span>I have read and agree to follow all gym rules and safety guidelines</span>
+                        </label>
+                        <button class="btn btn-primary" id="acknowledgeBtn" disabled>
+                            <i class="fas fa-check"></i> Acknowledge
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FitTrack CUET. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="rules-safety.html">Rules & Safety</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/notifications.js" defer></script>
+    <script src="js/rules.js"></script>
+</body>
+</html>

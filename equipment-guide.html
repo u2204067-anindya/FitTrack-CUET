@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Page - Quick Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .intro {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        h2 {
+            color: #1e293b;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #4f46e5;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .feature-card h3 {
+            color: #4f46e5;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-card li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #64748b;
+        }
+        
+        .feature-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .equipment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .equipment-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .equipment-item:hover {
+            border-color: #4f46e5;
+            transform: scale(1.05);
+        }
+        
+        .equipment-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .equipment-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .equipment-category {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+        }
+        
+        .highlight {
+            background: #fef3c7;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid #f59e0b;
+            margin: 2rem 0;
+        }
+        
+        .highlight h3 {
+            color: #92400e;
+            margin-bottom: 0.75rem;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏋️ Equipment Catalog Page</h1>
+        <div style="text-align: center;">
+            <span class="badge">✨ NEW FEATURE ADDED</span>
+        </div>
+        
+        <div class="intro">
+            <p><strong>🎉 Great news!</strong> A comprehensive equipment catalog page has been successfully added to FitTrack CUET. Users can now browse all gym equipment with detailed information, usage guidelines, safety tips, and health benefits.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span class="stat-number">14</span>
+                <span class="stat-label">Equipment Types</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Detail Tabs</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);">
+                <span class="stat-number">1800+</span>
+                <span class="stat-label">Lines of Code</span>
+            </div>
+        </div>
+
+        <h2>🎯 Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🔍 Search & Filter</h3>
+                <ul>
+                    <li>Real-time search</li>
+                    <li>Category filtering</li>
+                    <li>Equipment count</li>
+                    <li>Clear results</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>👁️ View Options</h3>
+                <ul>
+                    <li>Grid view (default)</li>
+                    <li>List view</li>
+                    <li>Smooth transitions</li>
+                    <li>Responsive layout</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>📋 Detailed Info</h3>
+                <ul>
+                    <li>Usage guidelines</li>
+                    <li>Pro tips</li>
+                    <li>Health benefits</li>
+                    <li>Safety precautions</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🎨 Beautiful UI</h3>
+                <ul>
+                    <li>Gradient icons</li>
+                    <li>Hover effects</li>
+                    <li>Modal dialogs</li>
+                    <li>Tabbed interface</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>💪 All Equipment Included</h2>
+        <div class="equipment-list">
+            <div class="equipment-item">
+                <div class="equipment-icon">🏃</div>
+                <div class="equipment-name">Treadmill</div>
+                <div class="equipment-category">Cardio</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">🚴</div>
+                <div class="equipment-name">Stationary Bike</div>
+                <div class="equipment-category">Cardio</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">🚣</div>
+                <div class="equipment-name">Rowing Machine</div>
+                <div class="equipment-category">Cardio</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">🛏️</div>
+                <div class="equipment-name">Bench Press</div>
+                <div class="equipment-category">Strength</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">🏋️</div>
+                <div class="equipment-name">Squat Rack</div>
+                <div class="equipment-category">Strength</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">⚙️</div>
+                <div class="equipment-name">Leg Press</div>
+                <div class="equipment-category">Strength</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">📏</div>
+                <div class="equipment-name">Cable Machine</div>
+                <div class="equipment-category">Strength</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">💪</div>
+                <div class="equipment-name">Dumbbells</div>
+                <div class="equipment-category">Free Weights</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">➖</div>
+                <div class="equipment-name">Barbell Set</div>
+                <div class="equipment-category">Free Weights</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">🎯</div>
+                <div class="equipment-name">Kettlebells</div>
+                <div class="equipment-category">Free Weights</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">⬆️</div>
+                <div class="equipment-name">Pull-up Bar</div>
+                <div class="equipment-category">Functional</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">🪢</div>
+                <div class="equipment-name">Battle Ropes</div>
+                <div class="equipment-category">Functional</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">🏀</div>
+                <div class="equipment-name">Medicine Balls</div>
+                <div class="equipment-category">Functional</div>
+            </div>
+            <div class="equipment-item">
+                <div class="equipment-icon">📜</div>
+                <div class="equipment-name">Foam Rollers</div>
+                <div class="equipment-category">Functional</div>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>🎓 Each Equipment Includes:</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: #f59e0b;">📝</span>
+                    <strong>Overview:</strong> Description, muscles, difficulty, capacity, session time
+                </li>
+                <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: #f59e0b;">📖</span>
+                    <strong>How to Use:</strong> 8-10 step-by-step instructions + pro tips
+                </li>
+                <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: #f59e0b;">⭐</span>
+                    <strong>Benefits:</strong> 6 health & fitness benefits with icons
+                </li>
+                <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: #f59e0b;">🛡️</span>
+                    <strong>Safety:</strong> Precautions, do's and don'ts
+                </li>
+            </ul>
+        </div>
+
+        <h2>🚀 How to Access</h2>
+        <ol style="padding-left: 2rem; color: #64748b;">
+            <li style="margin-bottom: 0.75rem;">Click the <strong>"Equipment"</strong> link in the navigation menu on any page</li>
+            <li style="margin-bottom: 0.75rem;">Or click <strong>"View All Equipment"</strong> button on the dashboard</li>
+            <li style="margin-bottom: 0.75rem;">Browse equipment using search or category filters</li>
+            <li style="margin-bottom: 0.75rem;">Click <strong>"View Details"</strong> on any equipment card</li>
+            <li style="margin-bottom: 0.75rem;">Explore the 4 tabs: Overview, How to Use, Benefits, Safety</li>
+        </ol>
+
+        <div class="btn-container">
+            <a href="equipment.html" class="btn">
+                🏋️ View Equipment Catalog
+            </a>
+            <a href="dashboard.html" class="btn btn-secondary">
+                📊 Back to Dashboard
+            </a>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e2e8f0; text-align: center; color: #64748b;">
+            <p><strong>FitTrack CUET</strong> - Equipment Catalog Feature</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Complete with 14 equipment types and comprehensive usage information</p>
+        </div>
+    </div>
+</body>
+</html>

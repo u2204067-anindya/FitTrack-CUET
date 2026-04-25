@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Catalog - FitTrack CUET</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/gym-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- Site Header -->
+    <header class="site-header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container container">
+                <!-- Brand Logo -->
+                <a href="dashboard.html" class="nav-brand" aria-label="FitTrack CUET Home">
+                    <i class="fas fa-dumbbell" aria-hidden="true"></i>
+                    <span>FitTrack CUET</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle -->
+                <button 
+                    class="nav-toggle" 
+                    id="navToggle" 
+                    type="button"
+                    aria-expanded="false" 
+                    aria-controls="navMenu"
+                    aria-label="Toggle navigation menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Main Navigation Menu -->
+                <ul class="nav-menu" id="navMenu" role="menubar">
+                    <li role="none">
+                        <a href="dashboard.html" role="menuitem">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="equipment.html" class="active" role="menuitem" aria-current="page">
+                            <i class="fas fa-dumbbell" aria-hidden="true"></i>
+                            <span>Equipment</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="workout-history.html" role="menuitem">
+                            <i class="fas fa-history" aria-hidden="true"></i>
+                            <span>Workout History</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="ai-instructor.html" role="menuitem">
+                            <i class="fas fa-robot" aria-hidden="true"></i>
+                            <span>AI Instructor</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="diet-plan.html" role="menuitem">
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+                            <span>Diet Plan</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="medical-profile.html" role="menuitem">
+                            <i class="fas fa-user-md" aria-hidden="true"></i>
+                            <span>Medical Profile</span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="rules-safety.html" role="menuitem">
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                            <span>Rules & Safety</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="nav-user">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-dropdown">
+                        <img src="https://ui-avatars.com/api/?name=Student&background=4f46e5&color=fff" alt="User">
+                        <span class="user-name">Student</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="dropdown-menu">
+                            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="index.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Motivational Banner -->
+            <div class="motivational-banner">
+                <p>"Master your equipment, master your body. Knowledge is the first step to transformation!"</p>
+            </div>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <div>
+                    <h1><i class="fas fa-dumbbell"></i> Equipment Catalog</h1>
+                    <p>Browse our comprehensive collection of gym equipment with detailed usage guidelines</p>
+                </div>
+            </div>
+
+            <!-- Search and Filter Section -->
+            <div class="equipment-filters">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="equipmentSearch" placeholder="Search equipment by name...">
+                </div>
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">
+                        <i class="fas fa-th"></i> All Equipment
+                    </button>
+                    <button class="filter-btn" data-category="cardio">
+                        <i class="fas fa-heartbeat"></i> Cardio
+                    </button>
+                    <button class="filter-btn" data-category="strength">
+                        <i class="fas fa-dumbbell"></i> Strength
+                    </button>
+                    <button class="filter-btn" data-category="free-weights">
+                        <i class="fas fa-weight"></i> Free Weights
+                    </button>
+                    <button class="filter-btn" data-category="functional">
+                        <i class="fas fa-running"></i> Functional
+                    </button>
+                </div>
+
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Equipment Count -->
+            <div class="equipment-count">
+                <p>Showing All equipment(s)</p>
+            </div>
+
+            <!-- Equipment Grid -->
+            <div class="equipment-catalog" id="equipmentCatalog">
+                <!-- Equipment cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Equipment Detail Modal -->
+    <div class="modal" id="equipmentDetailModal">
+        <div class="modal-content modal-large">
+            <button class="modal-close" id="closeDetailModal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="equipment-detail-container">
+                <!-- Equipment Header -->
+                <div class="equipment-detail-header">
+                    <div class="equipment-detail-icon" id="detailIcon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="equipment-detail-title">
+                        <h2 id="detailName">Equipment Name</h2>
+                        <div class="equipment-detail-meta">
+                            <span class="equipment-category-badge" id="detailCategory">Category</span>
+                            <span class="equipment-status-badge" id="detailStatus">Available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment Info Tabs -->
+                <div class="equipment-tabs">
+                    <button class="equipment-tab active" data-tab="overview">
+                        <i class="fas fa-info-circle"></i> Overview
+                    </button>
+                    <button class="equipment-tab" data-tab="guidelines">
+                        <i class="fas fa-book"></i> How to Use
+                    </button>
+                    <button class="equipment-tab" data-tab="benefits">
+                        <i class="fas fa-star"></i> Benefits
+                    </button>
+                    <button class="equipment-tab" data-tab="safety">
+                        <i class="fas fa-shield-alt"></i> Safety Tips
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="equipment-tab-content">
+                    <!-- Overview Tab -->
+                    <div class="tab-pane active" id="overviewTab">
+                        <div class="equipment-overview">
+                            <div class="overview-section">
+                                <h3><i class="fas fa-align-left"></i> Description</h3>
+                                <p id="detailDescription">Equipment description goes here.</p>
+                            </div>
+                            
+                            <div class="overview-grid">
+                                <div class="overview-item">
+                                    <i class="fas fa-bullseye"></i>
+                                    <div>
+                                        <strong>Primary Muscle Groups</strong>
+                                        <p id="detailMuscles">Muscle groups</p>
+                                    </div>
+                                </div>
+                                <div class="overview-item">
+                                    <i class="fas fa-layer-group"></i>
+                                    <div>
+                                        <strong>Difficulty Level</strong>
+                                        <p id="detailDifficulty">Beginner</p>
+                                    </div>
+                                </div>
+                                <div class="overview-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <strong>Capacity</strong>
+                                        <p id="detailCapacity">1 person</p>
+                                    </div>
+                                </div>
+                                <div class="overview-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <strong>Avg. Session Time</strong>
+                                        <p id="detailSessionTime">15-30 mins</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guidelines Tab -->
+                    <div class="tab-pane" id="guidelinesTab">
+                        <div class="guidelines-content">
+                            <h3><i class="fas fa-list-ol"></i> Step-by-Step Instructions</h3>
+                            <div class="guidelines-steps" id="detailGuidelines">
+                                <!-- Steps will be inserted here -->
+                            </div>
+                            
+                            <div class="guidelines-tips">
+                                <h4><i class="fas fa-lightbulb"></i> Pro Tips</h4>
+                                <ul id="detailProTips">
+                                    <!-- Tips will be inserted here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benefits Tab -->
+                    <div class="tab-pane" id="benefitsTab">
+                        <div class="benefits-content">
+                            <h3><i class="fas fa-heart"></i> Health & Fitness Benefits</h3>
+                            <div class="benefits-grid" id="detailBenefits">
+                                <!-- Benefits will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Safety Tab -->
+                    <div class="tab-pane" id="safetyTab">
+                        <div class="safety-content">
+                            <div class="safety-warnings">
+                                <h3><i class="fas fa-exclamation-triangle"></i> Safety Precautions</h3>
+                                <ul id="detailSafety">
+                                    <!-- Safety tips will be inserted here -->
+                                </ul>
+                            </div>
+                            
+                            <div class="safety-dos-donts">
+                                <div class="dos">
+                                    <h4><i class="fas fa-check-circle"></i> Do's</h4>
+                                    <ul id="detailDos">
+                                        <!-- Do's will be inserted here -->
+                                    </ul>
+                                </div>
+                                <div class="donts">
+                                    <h4><i class="fas fa-times-circle"></i> Don'ts</h4>
+                                    <ul id="detailDonts">
+                                        <!-- Don'ts will be inserted here -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="equipment-detail-footer">
+                    <button class="btn btn-secondary" id="closeDetailBtn">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                    <button class="btn btn-primary" id="bookEquipmentBtn">
+                        <i class="fas fa-calendar-check"></i> Book Session
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FitTrack CUET</h3>
+                <p>Your personal fitness companion at Chittagong University of Engineering and Technology</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="equipment.html">Equipment</a></li>
+                    <li><a href="rules-safety.html">Rules & Safety</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> gym@cuet.ac.bd</p>
+                <p><i class="fas fa-phone"></i> +880-31-123456</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FitTrack CUET. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/notifications.js" defer></script>
+    <script src="js/equipment.js"></script>
+</body>
+</html>

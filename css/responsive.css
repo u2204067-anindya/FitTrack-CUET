@@ -1,0 +1,801 @@
+/* ===========================
+   FitTrack CUET - Responsive Styles
+   Industry-Standard Responsive Design
+   4 Device Breakpoints:
+   - Mobile: < 576px
+   - Tablet: 576px - 992px
+   - Laptop: 992px - 1200px
+   - Desktop: > 1200px
+   =========================== */
+
+/* CSS Custom Properties for Responsive Design */
+:root {
+    --container-max-width: 1280px;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+}
+
+/* ===========================
+   Base Responsive Utilities
+   =========================== */
+
+/* Responsive Container */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--spacing-md);
+}
+
+/* Responsive Grid System */
+.grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+/* ===========================
+   Mobile First - Base Styles (< 576px)
+   =========================== */
+
+/* Modal Responsive */
+.modal {
+    padding: 1rem;
+}
+
+.modal-content {
+    width: 95%;
+    max-height: 85vh;
+}
+
+.equipment-detail-container {
+    padding: 1.5rem;
+}
+
+/* Header & Navigation */
+header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+header .navbar {
+    /* padding: var(--spacing-sm) var(--spacing-md); */
+}
+
+header .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .nav-brand {
+    font-size: 1.1rem;
+}
+
+header .nav-brand i {
+    font-size: 1.3rem;
+}
+
+/* Mobile Menu */
+header .nav-menu {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: rgba(79, 70, 229, 0.98);
+    flex-direction: column;
+    padding: var(--spacing-xl);
+    gap: var(--spacing-sm);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+header .nav-menu.active {
+    left: 0;
+}
+
+header .nav-menu li {
+    width: 100%;
+}
+
+header .nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+}
+
+header .nav-toggle {
+    display: flex;
+}
+
+header .nav-user {
+    gap: var(--spacing-sm);
+}
+
+header .user-name {
+    display: none;
+}
+
+/* Main Content */
+main.main-content {
+    padding: var(--spacing-lg) 0;
+    min-height: calc(100vh - 140px);
+}
+
+/* Sections */
+section {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Welcome Section */
+section.welcome-section {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+}
+
+section.welcome-section h1 {
+    font-size: 1.5rem;
+}
+
+section.welcome-section .quick-actions {
+    flex-direction: column;
+    width: 100%;
+}
+
+section.welcome-section .quick-actions .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Stats Grid */
+section.stats-section .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+section.stats-section .stat-card {
+    padding: var(--spacing-md);
+}
+
+section.stats-section .stat-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+}
+
+section.stats-section .stat-content h3 {
+    font-size: 1.5rem;
+}
+
+section.stats-section .stat-content p {
+    font-size: 0.75rem;
+}
+
+/* Gym Status */
+section.gym-status-section .status-card {
+    padding: var(--spacing-md);
+}
+
+section.gym-status-section .status-details {
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+section.gym-status-section .status-item {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-xs);
+}
+
+/* Equipment Section */
+section.equipment-section .section-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+section.equipment-section .filter-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section.equipment-section .filter-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8rem;
+}
+
+section.equipment-section .equipment-grid {
+    grid-template-columns: 1fr;
+}
+
+/* Gym Gallery Section */
+.gym-gallery-section {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+}
+
+.gym-gallery-section .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.gym-facility-image {
+    max-height: 300px;
+}
+
+.gym-image-figure figcaption {
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Activity Section */
+section.activity-section .activity-list {
+    gap: var(--spacing-md);
+}
+
+section.activity-section .activity-item {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+section.activity-section .activity-icon {
+    margin: 0 auto var(--spacing-sm);
+}
+
+/* Footer */
+footer.site-footer {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+footer .footer-container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+footer .footer-links {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* Motivational Banner */
+.motivational-banner {
+    padding: var(--spacing-md);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ===========================
+   Tablet Styles (576px - 992px)
+   =========================== */
+@media screen and (min-width: 576px) {
+    :root {
+        --spacing-md: 1.25rem;
+        --spacing-lg: 1.75rem;
+    }
+
+    /* Modal Responsive */
+    .modal-content {
+        width: 90%;
+        max-height: 88vh;
+    }
+
+    .equipment-detail-container {
+        padding: 2rem;
+    }
+
+    /* Navigation */
+    header .nav-menu {
+        top: 65px;
+    }
+
+    header .nav-menu a {
+        font-size: 1.1rem;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    /* Welcome Section */
+    section.welcome-section h1 {
+        font-size: 1.75rem;
+    }
+
+    section.welcome-section .quick-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    section.welcome-section .quick-actions .btn {
+        width: auto;
+    }
+
+    /* Stats Grid */
+    section.stats-section .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+
+    section.stats-section .stat-card {
+        padding: var(--spacing-lg);
+    }
+
+    section.stats-section .stat-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+    }
+
+    section.stats-section .stat-content h3 {
+        font-size: 1.75rem;
+    }
+
+    /* Gym Status */
+    section.gym-status-section .status-details {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section.gym-status-section .status-item {
+        flex: 1 1 200px;
+        flex-direction: row;
+        text-align: left;
+    }
+
+    /* Equipment Grid */
+    section.equipment-section .equipment-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Gym Gallery Section */
+    .gym-gallery-section .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .gym-facility-image {
+        max-height: 400px;
+    }
+
+    .gym-image-figure figcaption {
+        padding: 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    /* Activity Items */
+    section.activity-section .activity-item {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    section.activity-section .activity-icon {
+        margin: 0;
+    }
+
+    /* Footer */
+    footer .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    footer .footer-links {
+        flex-direction: row;
+        gap: var(--spacing-lg);
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    /* Motivational Banner */
+    .motivational-banner {
+        font-size: 1rem;
+        padding: var(--spacing-lg);
+    }
+}
+
+/* ===========================
+   Laptop Styles (992px - 1200px)
+   =========================== */
+@media screen and (min-width: 992px) {
+    :root {
+        --spacing-lg: 5rem;
+        --spacing-xl: 2.5rem;
+    }
+
+    /* Modal Responsive */
+    .modal-content {
+        width: 85%;
+    }
+
+    .equipment-detail-container {
+        padding: 2.5rem;
+    }
+
+    /* Navigation - Desktop Menu */
+    header .nav-toggle {
+        display: none;
+    }
+
+    header .nav-menu {
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        flex-direction: row;
+        padding: 0;
+        gap: var(--spacing-xs);
+    }
+
+    header .nav-menu li {
+        width: 100%;
+    }
+
+    header .nav-menu a {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+
+    header .nav-user {
+        gap: var(--spacing-md);
+    }
+
+    header .user-name {
+        display: inline;
+    }
+
+    /* Welcome Section */
+    section.welcome-section {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    section.welcome-section h1 {
+        font-size: 2rem;
+    }
+
+    section.welcome-section .quick-actions {
+        width: auto;
+    }
+
+    /* Stats Grid */
+    section.stats-section .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    section.stats-section .stat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    section.stats-section .stat-content h3 {
+        font-size: 2rem;
+    }
+
+    section.stats-section .stat-content p {
+        font-size: 0.85rem;
+    }
+
+    /* Equipment Section */
+    section.equipment-section .section-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    section.equipment-section .equipment-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Gym Gallery Section */
+    .gym-gallery-section {
+        margin-bottom: 3.5rem;
+        padding: 2rem 0;
+    }
+
+    .gym-gallery-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .gym-facility-image {
+        max-height: 500px;
+    }
+
+    .gym-image-figure figcaption {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    /* Motivational Banner */
+    .motivational-banner {
+        font-size: 1.1rem;
+    }
+}
+
+/* ===========================
+   Desktop Styles (> 1200px)
+   =========================== */
+@media screen and (min-width: 1200px) {
+    :root {
+        --container-max-width: 1400px;
+        --spacing-xl: 3rem;
+        --spacing-2xl: 4rem;
+    }
+
+    /* Modal Responsive */
+    .modal-content {
+        width: 80%;
+    }
+
+    .equipment-detail-container {
+        padding: 2.5rem;
+    }
+
+    /* Navigation */
+    header .nav-brand {
+        font-size: 1.3rem;
+    }
+
+    header .nav-brand i {
+        font-size: 1.6rem;
+    }
+
+    header .nav-menu a {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 0.95rem;
+    }
+
+    /* Main Content */
+    main.main-content {
+        padding: var(--spacing-xl) 0;
+    }
+
+    /* Welcome Section */
+    section.welcome-section h1 {
+        font-size: 2rem;
+    }
+
+    /* Stats Grid */
+    section.stats-section .stat-card {
+        padding: var(--spacing-xl);
+    }
+
+    section.stats-section .stat-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+    }
+
+    section.stats-section .stat-content h3 {
+        font-size: 2.25rem;
+    }
+
+    section.stats-section .stat-content p {
+        font-size: 0.9rem;
+    }
+
+    /* Equipment Grid */
+    section.equipment-section .equipment-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Gym Gallery Section */
+    .gym-gallery-section {
+        margin-bottom: 3.5rem;
+        padding: 2.5rem 0;
+    }
+
+    .gym-gallery-section .section-title {
+        font-size: 2.25rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .gym-facility-image {
+        max-height: 550px;
+    }
+
+    .gym-image-figure figcaption {
+        padding: 1.75rem;
+        font-size: 1.1rem;
+    }
+
+    /* Activity Items */
+    section.activity-section .activity-item {
+        padding: var(--spacing-lg);
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    /* Motivational Banner */
+    .motivational-banner {
+        font-size: 1.2rem;
+        padding: var(--spacing-xl);
+    }
+}
+
+/* ===========================
+   Accessibility & Print
+   =========================== */
+
+/* Focus States */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000ff;
+        --text-dark: #000000;
+        --bg-white: #ffffff;
+        --border-color: #000000;
+    }
+}
+
+/* Print Styles */
+@media print {
+    header.site-header,
+    footer.site-footer,
+    .nav-toggle,
+    .quick-actions,
+    .filter-buttons {
+        display: none !important;
+    }
+
+    main.main-content {
+        padding: 0;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+}
+
+/* ===========================
+   Utility Classes
+   =========================== */
+
+/* Display Utilities */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-grid { display: grid !important; }
+
+/* Mobile Only */
+@media (max-width: 575.98px) {
+    .d-mobile-none { display: none !important; }
+    .d-mobile-block { display: block !important; }
+}
+
+/* Tablet Only */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .d-tablet-none { display: none !important; }
+    .d-tablet-block { display: block !important; }
+}
+
+/* Laptop Only */
+@media (min-width: 992px) and (max-width: 1080px) {
+    .d-laptop-none { display: none !important; }
+    .d-laptop-block { display: block !important; }
+}
+
+/* Desktop Only */
+@media (min-width: 1200px) {
+    .d-desktop-none { display: none !important; }
+    .d-desktop-block { display: block !important; }
+}
+
+/* Text Alignment */
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+
+@media (max-width: 575.98px) {
+    .text-mobile-center { text-align: center !important; }
+}
+
+/* Flexbox Utilities */
+.flex-column { flex-direction: column !important; }
+.flex-row { flex-direction: row !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.justify-center { justify-content: center !important; }
+.justify-between { justify-content: space-between !important; }
+.align-center { align-items: center !important; }
+.gap-sm { gap: var(--spacing-sm) !important; }
+.gap-md { gap: var(--spacing-md) !important; }
+.gap-lg { gap: var(--spacing-lg) !important; }
+
+/* Margin & Padding */
+.m-0 { margin: 0 !important; }
+.mt-auto { margin-top: auto !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-sm { margin-bottom: var(--spacing-sm) !important; }
+.mb-md { margin-bottom: var(--spacing-md) !important; }
+.mb-lg { margin-bottom: var(--spacing-lg) !important; }
+.p-0 { padding: 0 !important; }
+.p-sm { padding: var(--spacing-sm) !important; }
+.p-md { padding: var(--spacing-md) !important; }
+.p-lg { padding: var(--spacing-lg) !important; }
+
+/* Width Utilities */
+.w-100 { width: 100% !important; }
+.w-auto { width: auto !important; }
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

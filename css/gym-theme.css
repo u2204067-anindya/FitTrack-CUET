@@ -1,0 +1,497 @@
+/* ===========================
+   FitTrack CUET - Clean Modern Theme
+   Simple & Professional Design
+   =========================== */
+
+/* ===========================
+   Color Palette:
+   - Primary: #2563eb (Blue)
+   - Navbar: #1e293b (Dark Slate)
+   - Accent: #f97316 (Orange)
+   - Success: #16a34a (Green)
+   - Background: #f1f5f9 (Light Gray)
+   - Card: #ffffff (White)
+   - Text: #334155 (Slate)
+   =========================== */
+
+/* Clean Body Background */
+body {
+    background: #f1f5f9;
+}
+
+/* Fixed Header/Navbar */
+header.site-header,
+.site-header,
+body > nav.navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+/* Navbar */
+.navbar {
+    background: #1e293b !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Body padding for fixed header */
+body {
+    padding-top: 70px;
+}
+
+/* Navigation Menu - No Scrollbar */
+.nav-menu {
+    overflow: visible !important;
+    overflow-y: visible !important;
+}
+
+/* Nav Brand styling */
+.nav-brand {
+    color: #ffffff !important;
+}
+
+.nav-brand i {
+    color: aquamarine !important;
+}
+
+/* Navigation Links - All Pages */
+.nav-menu a {
+    color: #cbd5e1 !important;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #f97316 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Desktop: Compact nav items to fit */
+@media (min-width: 992px) {
+    .nav-menu {
+        gap: 0.25rem !important;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem 0.6rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .nav-menu a i {
+        font-size: 0.9rem;
+    }
+}
+
+/* Large Desktop: Slightly more spacing */
+@media (min-width: 1200px) {
+    .nav-menu {
+        gap: 0.35rem !important;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.72rem !important;                        
+    }                                                 
+}
+                                           
+/* Main Content Container */
+.main-content .container {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Page Headers */
+.page-header h1 {
+    color: #1e293b !important;
+    font-weight: 700 !important;
+}
+
+/* Buttons */
+.btn {
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: rgb(201, 79, 9);
+    border-color: #2563eb !important;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8 !important;
+}
+
+.btn-secondary {
+    background: #64748b !important;
+    border-color: #64748b !important;
+}
+
+/* Stat Cards */
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Stat Icons */
+.stat-icon {
+    border-radius: 0.75rem;
+}
+
+.stat-icon.blue {
+    background: #2563eb;
+}
+
+.stat-icon.green {
+    background: #16a34a;
+}
+
+.stat-icon.orange {
+    background: #f97316;
+}
+
+.stat-icon.purple {
+    background: #7c3aed;
+}
+
+.stat-icon.red {
+    background: #dc2626;
+}
+
+/* Equipment Cards */
+.equipment-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.equipment-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Activity Items */
+.activity-item,
+.workout-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #2563eb;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.activity-item:hover,
+.workout-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Activity Icons */
+.activity-icon.blue {
+    background: #2563eb;
+}
+
+.activity-icon.green {
+    background: #16a34a;
+}
+
+.activity-icon.orange {
+    background: #f97316;
+}
+
+/* Status Badges */
+.status-badge {
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: 1rem;
+}
+
+.status-badge.open {
+    background: #16a34a;
+    color: white;
+}
+
+/* Gym Status Card */
+.status-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+}
+
+.status-item i {
+    color: #2563eb;
+}
+
+.status-item dt {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.status-item dd {
+    margin-left: 0;
+    color: var(--text-light, #64748b);
+    font-size: 0.95rem;
+}
+
+.status-details {
+    display: grid;
+    gap: 1rem;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+/* Filter Buttons */
+.filter-btn {
+    font-weight: 600;
+    border: 2px solid #e2e8f0;
+    background: #ffffff;
+    color: #64748b;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.filter-btn.active {
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+    color: white !important;
+}
+
+/* Footer */
+.footer {
+    background: #1e293b;
+    color: #94a3b8;
+}
+
+.footer a {
+    color: #94a3b8;
+}
+
+.footer a:hover {
+    color: #f97316;
+}
+
+/* Chat Messages */
+.message.user {
+    background: #2563eb;
+    color: white;
+}
+
+.message.ai {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+}
+
+/* Motivational Banner */
+.motivational-banner {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+}
+
+.motivational-banner p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1e40af;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Form Inputs */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+    outline: none;
+}
+
+/* Section Titles */
+.section-title {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+/* Welcome Section */
+.welcome-section h1 {
+    color: #1e293b !important;
+}
+
+/* Success/Error States */
+.success {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    color: #166534;
+}
+
+.error {
+    background: #fef2f2;
+    border-left: 4px solid #dc2626;
+    color: #991b1b;
+}
+
+/* Cards */
+.card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+}
+
+/* Notification Icon */
+.notification-icon {
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none !important;
+}
+
+.notification-icon:hover {
+    color: #f97316;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Notification Badge */
+.notification-badge {
+    background: #f97316;
+    border: none !important;
+}
+
+/* User Dropdown / Profile Bar */
+.nav-user {
+    gap: 1rem;
+}
+
+.user-dropdown {
+    background: transparent !important;
+    border: none !important;
+    padding: 0.4rem 0.6rem;
+    border-radius: 2rem;
+    transition: all 0.2s ease;
+}
+
+.user-dropdown:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.user-dropdown img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.user-name {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.user-dropdown i.fa-chevron-down {
+    color: #94a3b8;
+    font-size: 0.7rem;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background: #ffffff;
+    border: none !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+}
+
+.dropdown-menu a {
+    border: none !important;
+}
+
+.dropdown-menu a:hover {
+    background: #f1f5f9;
+    color: #2563eb;
+}
+
+/* Tabs */
+.tab-btn.active {
+    background: #2563eb;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content .container {
+        border-radius: 0;
+        padding: 1rem;
+    }
+    
+    body {
+        padding-top: 60px;
+    }
+}
+
+/* Dark Theme Gym-Theme Overrides */
+body.dark-theme,
+body.dark-theme main {
+    background: #0f172a !important;
+}
+
+body.dark-theme header,
+body.dark-theme .navbar {
+    background: #0b4b60 !important;
+}
+
+body.dark-theme .sidebar {
+    background: #1e293b !important;
+}
+
+/* Fixes for dark mode in gym-theme layout specifically */
+body.dark-theme .navbar { box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05) !important; border-bottom: 1px solid var(--border-color); }
+body.dark-theme .card, body.dark-theme .dashboard-card { background: #1e293b !important; color: var(--text-dark) !important; border: 1px solid var(--border-color); }
+body.dark-theme .equipment-card, body.dark-theme .profile-card { background: #1e293b !important; border: 1px solid var(--border-color); }
+body.dark-theme .stat-card { background: #1e293b !important; }
+body.dark-theme .table-container { background: #1e293b !important; }
+body.dark-theme .modal-content { background: #1e293b !important; }
+body.dark-theme .form-container, body.dark-theme .login-container { background: #1e293b !important; box-shadow: 0 4px 6px rgba(0,0,0,0.5); }
+body.dark-theme a.btn-text { color: var(--primary-color); }
+body.dark-theme a.btn-text:hover { color: var(--primary-dark); }
+
+/* Fixes for dark mode in gym-theme layout specifically */
+body.dark-theme .navbar { box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05) !important; border-bottom: 1px solid var(--border-color); }
+body.dark-theme .card, body.dark-theme .dashboard-card { background: #1e293b !important; color: var(--text-dark) !important; border: 1px solid var(--border-color); }
+body.dark-theme .equipment-card, body.dark-theme .profile-card { background: #1e293b !important; border: 1px solid var(--border-color); }
+body.dark-theme .stat-card { background: #1e293b !important; }
+body.dark-theme .table-container { background: #1e293b !important; }
+body.dark-theme .modal-content { background: #1e293b !important; }
+body.dark-theme .form-container, body.dark-theme .login-container { background: #1e293b !important; box-shadow: 0 4px 6px rgba(0,0,0,0.5); }
+body.dark-theme a.btn-text { color: var(--primary-color); }
+body.dark-theme a.btn-text:hover { color: var(--primary-dark); }
+
