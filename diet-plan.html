@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Plan - FitTrack CUET</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <link rel="stylesheet" href="css/gym-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-dumbbell"></i>
+                <span>FitTrack CUET</span>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>                <li><a href="equipment.html"><i class="fas fa-dumbbell"></i> Equipment</a></li>                <li><a href="workout-history.html"><i class="fas fa-history"></i> Workout History</a></li>
+                <li><a href="ai-instructor.html"><i class="fas fa-robot"></i> AI Instructor</a></li>
+                <li><a href="diet-plan.html" class="active"><i class="fas fa-utensils"></i> Diet Plan</a></li>
+                <li><a href="medical-profile.html"><i class="fas fa-user-md"></i> Medical Profile</a></li>
+                <li><a href="rules-safety.html"><i class="fas fa-shield-alt"></i> Rules & Safety</a></li>
+            </ul>
+            
+            <div class="nav-user">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Student&background=4f46e5&color=fff" alt="User">
+                    <span class="user-name">Student</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="index.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div>
+                    <h1><i class="fas fa-utensils"></i> Personalized Diet Plan</h1>
+                    <p>Nutrition guidance aligned with your fitness goals</p>
+                </div>
+                <button class="btn btn-primary" onclick="generateDietPlan()">
+                    <i class="fas fa-sync-alt"></i> Generate New Plan
+                </button>
+            </section>
+
+            <!-- Nutrition Notice -->
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>Nutrition Guidance:</strong>
+                    <p>Diet recommendations are general suggestions. For specific dietary needs or medical conditions, consult a qualified nutritionist or healthcare professional.</p>
+                </div>
+            </div>
+
+            <!-- Nutrition Goals -->
+            <section class="nutrition-goals">
+                <h2 class="section-title">Your Nutrition Goals</h2>
+                <div class="goals-grid">
+                    <div class="goal-card" >
+                        <i class="fas fa-fire"></i>
+                        <h3 id="displayTargetCalories">0</h3>
+                        <p>Daily Calories</p>
+                        <small>Based on your goal</small>
+                    </div>
+                    <div class="goal-card">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <h3 id="displayProtein">150g</h3>
+                        <p>Protein</p>
+                        <small>Muscle building</small>
+                    </div>
+                    <div class="goal-card">
+                        <i class="fas fa-bread-slice"></i>
+                        <h3 id="displayCarbs">280g</h3>
+                        <p>Carbohydrates</p>
+                        <small>Energy source</small>
+                    </div>
+                    <div class="goal-card">
+                        <i class="fas fa-cheese"></i>
+                        <h3 id="displayFats">65g</h3>
+                        <p>Healthy Fats</p>
+                        <small>Essential nutrients</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diet Preferences Form -->
+            <section class="preferences-section">
+                <h2 class="section-title">Diet Preferences</h2>
+                <form id="dietPreferencesForm" class="diet-preferences-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dietType">Diet Type</label>
+                            <select id="dietType" name="dietType">
+                                <option value="balanced">Balanced</option>
+                                <option value="high-protein">High Protein</option>
+                                <option value="low-carb">Low Carb</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="keto">Ketogenic</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mealsPerDay">Meals Per Day</label>
+                            <select id="mealsPerDay" name="mealsPerDay">
+                                <option value="3">3 Meals</option>
+                                <option value="4">4 Meals</option>
+                                <option value="5" selected>5 Meals</option>
+                                <option value="6">6 Meals</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="targetCalories">Target Calories</label>
+                            <input type="number" id="targetCalories" name="targetCalories" value="2400" min="1200" max="4000">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dietGoal">Goal</label>
+                            <select id="dietGoal" name="dietGoal">
+                                <option value="maintenance">Maintenance</option>
+                                <option value="weight-loss">Weight Loss</option>
+                                <option value="muscle-gain">Muscle Gain</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="proteinTarget">Protein Goal (g)</label>
+                            <input type="number" id="proteinTarget" name="proteinTarget" value="150" min="50" max="400">
+                        </div>
+                        <div class="form-group">
+                            <label for="carbsTarget">Carbs Goal (g)</label>
+                            <input type="number" id="carbsTarget" name="carbsTarget" value="280" min="50" max="600">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fatTarget">Fats Goal (g)</label>
+                            <input type="number" id="fatTarget" name="fatTarget" value="65" min="20" max="200">
+                        </div>
+                        <div class="form-group">
+                            <label for="waterGoal">Water Goal (L)</label>
+                            <input type="number" id="waterGoal" name="waterGoal" value="3.0" step="0.1" min="1.0" max="8.0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dietary Restrictions</label>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="restrictions" value="dairy-free"> Dairy-Free</label>
+                            <label><input type="checkbox" name="restrictions" value="gluten-free"> Gluten-Free</label>
+                            <label><input type="checkbox" name="restrictions" value="nut-free"> Nut-Free</label>
+                            <label><input type="checkbox" name="restrictions" value="soy-free"> Soy-Free</label>
+                            <label><input type="checkbox" name="restrictions" value="halal"> Halal</label>
+                            <label><input type="checkbox" name="restrictions" value="no-seafood"> No Seafood</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foodDislikes">Foods to Avoid</label>
+                        <textarea id="foodDislikes" name="foodDislikes" rows="2" placeholder="List foods you dislike or want to avoid..."></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                        <h3>Manual Daily Meal Plan (Optional)</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">Fill these out to manually set your meals, separated by commas. Leave blank to auto-generate based on targets.</p>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="manualBreakfast">Breakfast Items</label>
+                                <textarea id="manualBreakfast" name="manualBreakfast" rows="2" placeholder="e.g., 3 eggs, 2 slices whole wheat toast"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="manualLunch">Lunch Items</label>
+                                <textarea id="manualLunch" name="manualLunch" rows="2" placeholder="e.g., Grilled chicken (150g), Brown rice (1 cup)"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="manualDinner">Dinner Items</label>
+                                <textarea id="manualDinner" name="manualDinner" rows="2" placeholder="e.g., Grilled salmon, Sweet potato"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="manualSnacks">Snacks Items</label>
+                                <textarea id="manualSnacks" name="manualSnacks" rows="2" placeholder="e.g., Protein shake, Almonds"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Preferences
+                    </button>
+                </form>
+            </section>
+
+            <!-- Sample Meal Plan -->
+            <section class="meal-plan-section">
+                <h2 class="section-title">Daily Meal Plan</h2>
+                <div class="meal-plan-container" id="mealPlanContainer">
+                    <!-- Meal cards will be dynamically loaded -->
+                </div>
+            </section>
+
+            <!-- Weekly Plan Overview -->
+             <!----
+            <section class="weekly-overview">
+                <h2 class="section-title">7-Day Meal Plan Overview</h2>
+                <div class="week-tabs">
+                    <button class="tab-btn active" data-day="monday">Mon</button>
+                    <button class="tab-btn" data-day="tuesday">Tue</button>
+                    <button class="tab-btn" data-day="wednesday">Wed</button>
+                    <button class="tab-btn" data-day="thursday">Thu</button>
+                    <button class="tab-btn" data-day="friday">Fri</button>
+                    <button class="tab-btn" data-day="saturday">Sat</button>
+                    <button class="tab-btn" data-day="sunday">Sun</button>
+                </div>
+                <div class="day-plan-content" id="dayPlanContent">
+                 
+                </div>
+            </section>     -- >
+             
+
+            <!-- Nutrition Tips -->
+            <section class="tips-section">
+                <h2 class="section-title">Nutrition Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-tint"></i>
+                        <h3>Stay Hydrated</h3>
+                        <p>Drink at least 8-10 glasses of water daily, especially before and after workouts.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Meal Timing</h3>
+                        <p>Eat protein-rich meals 1-2 hours before workouts and within 30 minutes after.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-apple-alt"></i>
+                        <h3>Whole Foods</h3>
+                        <p>Focus on whole, unprocessed foods for better nutrition and energy.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Portion Control</h3>
+                        <p>Use proper portion sizes to meet your calorie and macro targets.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FitTrack CUET. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="rules-safety.html">Rules & Safety</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/notifications.js" defer></script>
+    <script src="js/diet-plan.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout History - FitTrack CUET</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <link rel="stylesheet" href="css/gym-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-dumbbell"></i>
+                <span>FitTrack CUET</span>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>                <li><a href="equipment.html"><i class="fas fa-dumbbell"></i> Equipment</a></li>                <li><a href="workout-history.html" class="active"><i class="fas fa-history"></i> Workout History</a></li>
+                <li><a href="ai-instructor.html"><i class="fas fa-robot"></i> AI Instructor</a></li>
+                <li><a href="diet-plan.html"><i class="fas fa-utensils"></i> Diet Plan</a></li>
+                <li><a href="medical-profile.html"><i class="fas fa-user-md"></i> Medical Profile</a></li>
+                <li><a href="rules-safety.html"><i class="fas fa-shield-alt"></i> Rules & Safety</a></li>
+            </ul>
+            
+            <div class="nav-user">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Student&background=4f46e5&color=fff" alt="User">
+                    <span class="user-name">Student</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="index.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Motivational Banner -->
+            <div class="motivational-banner">
+                <p>"Every rep, every set, every workout brings you one step closer to your goals!"</p>
+            </div>
+
+            <!-- Page Header -->
+            <section class="page-header">
+                <div>
+                    <h1><i class="fas fa-history"></i> Workout History</h1>
+                    <p>Track and manage your fitness journey</p>
+                </div>
+                <button class="btn btn-primary" onclick="openWorkoutModal()">
+                    <i class="fas fa-plus"></i> Log New Workout
+                </button>
+            </section>
+
+            <!-- Stats Summary -->
+            <section class="workout-stats">
+                <div class="stat-card">
+                    <i class="fas fa-fire"></i>
+                    <div>
+                        <h3 id="statTotalWorkouts">0</h3>
+                        <p>Total Workouts</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-week"></i>
+                    <div>
+                        <h3 id="statThisMonth">0</h3>
+                        <p>This Month</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h3 id="statCurrentStreak">0</h3>
+                        <p>Current Streak</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3 id="statTotalDuration">0h</h3>
+                        <p>Total Duration</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filter Section -->
+            <section class="filter-section">
+                <div class="filter-group">
+                    <label><i class="fas fa-calendar"></i> Date Range:</label>
+                    <select id="dateFilter">
+                        <option value="7">Last 7 Days</option>
+                        <option value="30" selected>Last 30 Days</option>
+                        <option value="90">Last 3 Months</option>
+                        <option value="all">All Time</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><i class="fas fa-filter"></i> Workout Type:</label>
+                    <select id="typeFilter">
+                        <option value="all">All Types</option>
+                        <option value="strength">Strength Training</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="flexibility">Flexibility</option>
+                        <option value="mixed">Mixed</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchWorkout" placeholder="Search workouts...">
+                </div>
+            </section>
+
+            <!-- Workout History List -->
+            <section class="workout-history-section">
+                <div class="workout-list" id="workoutList">
+                    <!-- Workout items will be dynamically loaded -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Add Workout Modal -->
+    <div class="modal" id="workoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-plus-circle"></i> Log Workout</h2>
+                <button class="modal-close" onclick="closeWorkoutModal()">&times;</button>
+            </div>
+            <form id="workoutForm" class="workout-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="workoutName">Workout Name</label>
+                        <input type="text" id="workoutName" name="name" placeholder="e.g. Morning Cardio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="workoutDate">Date</label>
+                        <input type="date" id="workoutDate" name="date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="workoutType">Workout Type</label>
+                        <select id="workoutType" name="type" required>
+                            <option value="">Select Type</option>
+                            <option value="strength">Strength Training</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="flexibility">Flexibility</option>
+                            <option value="mixed">Mixed</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Duration (minutes)</label>
+                        <input type="number" id="duration" name="duration" min="1" placeholder="45" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="focusArea">Focus Area</label>
+                    <select id="focusArea" name="focusArea" required>
+                        <option value="">Select Focus Area</option>
+                        <option value="chest">Chest</option>
+                        <option value="back">Back</option>
+                        <option value="legs">Legs</option>
+                        <option value="shoulders">Shoulders</option>
+                        <option value="arms">Arms</option>
+                        <option value="core">Core</option>
+                        <option value="full-body">Full Body</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Exercises</label>
+                    <div id="exerciseList">
+                        <div class="exercise-item">
+                            <input type="text" placeholder="Exercise name" class="exercise-name" required>
+                            <input type="number" placeholder="Sets" class="exercise-sets" min="1" required>
+                            <input type="number" placeholder="Reps" class="exercise-reps" min="1" required>
+                            <input type="number" placeholder="Weight (kg)" class="exercise-weight" min="0">
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-exercise" onclick="addExerciseField()">
+                        <i class="fas fa-plus"></i> Add Exercise
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <label for="intensity">Intensity Level</label>
+                    <div class="intensity-selector">
+                        <input type="radio" id="low" name="intensity" value="low" required>
+                        <label for="low">Low</label>
+                        <input type="radio" id="medium" name="intensity" value="medium">
+                        <label for="medium">Medium</label>
+                        <input type="radio" id="high" name="intensity" value="high">
+                        <label for="high">High</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="How did you feel? Any observations..."></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeWorkoutModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Workout
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FitTrack CUET. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="rules-safety.html">Rules & Safety</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Workout Details Modal -->
+    <div id="workoutDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-dumbbell"></i> Workout Details</h2>
+                <span class="close-modal" onclick="closeWorkoutDetailsModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="workoutDetailsContent">
+                <!-- Content will be dynamically populated via JS -->
+            </div>
+            <div class="modal-footer" style="text-align: right; margin-top: 20px;">
+                <button type="button" class="btn btn-primary" onclick="closeWorkoutDetailsModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/notifications.js" defer></script>
+    <script src="js/workout.js"></script>
+</body>
+</html>
